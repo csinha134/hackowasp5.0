@@ -1,0 +1,39 @@
+{
+  "name": "botlick",
+  "version": "1.0.1",
+  "description": "NFT based peer to peer data storage system",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
+    "client": "cd client && yarn dev",
+    "dev": "concurrently \"npm run server\" \"cd ..\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/csinha134/hackowasp5.0.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/csinha134/hackowasp5.0/issues"
+  },
+  "homepage": "https://github.com/csinha134/hackowasp5.0#readme",
+  "devDependencies": {
+    "@types/cors": "^2.8.13",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.17",
+    "@types/helmet": "^4.0.0",
+    "@types/node": "^18.15.11",
+    "concurrently": "^8.0.1",
+    "nodemon": "^2.0.22",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.1.5"
+  }
+}

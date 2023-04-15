@@ -1,29 +1,21 @@
-import React, {useState, useEffect} from "react";
-import Clients from "./components/Clients";
-import Footer from "./components/Footer";
-import Free from "./components/Free";
-import Home from "./components/Home";
-import Like from "./components/Like";
-import Navbar from "./components/Navbar";
-import Release from "./components/Release";
-import ScrollToTop from "./components/ScrollToTop";
-import Signup from "./components/Signup";
-import scrollreveal from "scrollreveal";
+import './index.css'
 import "./sass/index.scss";
+import HomePage from './pages/Home'
+import Admin from './pages/Admin';
+import scrollreveal from "scrollreveal";
+import {ROUTES} from './entities/routes';
+import Navbar from "./components/Navbar";
+import {useEffect, useState} from 'react'
+import {BrowserRouter, Routes, Route} from "react-router-dom";
 import {revealSelectors, scrollRevealConfig, scrollRevealOptions} from "./entities/scroll-reveal";
 
-export default function App() {
+export default function App () {
   const [theme, setTheme] = useState("dark");
   const changeTheme = () => {
     theme === "dark" ? setTheme("light") : setTheme("dark");
   };
 
   useEffect(() => {
-    // function registerAnimations() {
-    //   const sr = scrollreveal(scrollRevealConfig);
-    //   sr.reveal(revealSelectors, scrollRevealOptions);
-    // };
-    // registerAnimations();
     const sr = scrollreveal(scrollRevealConfig);
     sr.reveal(revealSelectors, scrollRevealOptions);
   }, []);
@@ -37,15 +29,13 @@ export default function App() {
 
   return (
     <div data-theme={theme} className="app-container">
-      <ScrollToTop />
       <Navbar changeTheme={changeTheme} currentTheme={theme} />
-      <Home />
-      <Free />
-      <Clients />
-      <Release />
-      <Like />
-      <Signup />
-      <Footer />
+      <BrowserRouter>
+        <Routes>
+          <Route path={ROUTES.HOME} element={<HomePage />} />
+          <Route path={ROUTES.ADMIN} element={<Admin />} />
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }

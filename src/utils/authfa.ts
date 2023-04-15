@@ -7,7 +7,7 @@ async function doesWalletOwnNft(
   walletPublicKey: string,
   nftContractAddress: string,
 ): Promise<boolean> {
-  const response = await axios.get(`https://api.jakartanet.tzkt.io/v1/tokens/balances?token.contract=${nftContractAddress}&balance=1`);
+  const response = await axios.get(`https://api.ghostnet.tzkt.io/v1/tokens/balances?token.contract=${nftContractAddress}&balance=1`);
   const data = response.data as TAuthFA.GetFa2TokenResponse[];
   return data.find((item) => {
     if (item.account.address === walletPublicKey) {

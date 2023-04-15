@@ -15,6 +15,7 @@ import {checkFile} from "./utils/fs";
 import {checkParams, cryptFileWithSalt} from "./utils/crypto";
 import {setupHeaders} from "./utils/req";
 import authMiddleware from "./middlewares/auth.middlewares";
+import {allowedOrigins} from "./entities/constants";
 
 dotenv.config();
 
@@ -43,15 +44,14 @@ app.use(
   })
 );
 app.use(fileUpload());
-// TODO
-app.use(cors({origin: ['http://localhost:3001', 'https://fanstop-frontend.vercel.app'], credentials: true}));
+app.use(cors({origin: allowedOrigins, credentials: true}));
 
 app.get(`/`, async (
   _: express.Request,
   response: express.Response,
 ): Promise<void> => {
-  // TODO
-  response.send(`Welcome to the Fanstop backend server! Directly calling me isn't fun; so head to https://fanstop-frontend.vercel.app/ to explore more 🚀`);
+  // TODO: add a HTML page for fun
+  response.send(`Hi there owasp🚀`);
 });
 
 

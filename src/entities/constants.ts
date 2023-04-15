@@ -1,2 +1,2 @@
-export const allowedOrigins = ['http://localhost:3001',]
+export const allowedOrigins = ['http://localhost:5173/',]
 

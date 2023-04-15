@@ -1,35 +1,51 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, {useState, useEffect} from "react";
+import Clients from "./components/Clients";
+import Footer from "./components/Footer";
+import Free from "./components/Free";
+import Home from "./components/Home";
+import Like from "./components/Like";
+import Navbar from "./components/Navbar";
+import Release from "./components/Release";
+import ScrollToTop from "./components/ScrollToTop";
+import Signup from "./components/Signup";
+import scrollreveal from "scrollreveal";
+import "./sass/index.scss";
+import {revealSelectors, scrollRevealConfig, scrollRevealOptions} from "./entities/scroll-reveal";
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [theme, setTheme] = useState("dark");
+  const changeTheme = () => {
+    theme === "dark" ? setTheme("light") : setTheme("dark");
+  };
+
+  useEffect(() => {
+    // function registerAnimations() {
+    //   const sr = scrollreveal(scrollRevealConfig);
+    //   sr.reveal(revealSelectors, scrollRevealOptions);
+    // };
+    // registerAnimations();
+    const sr = scrollreveal(scrollRevealConfig);
+    sr.reveal(revealSelectors, scrollRevealOptions);
+  }, []);
+
+  window.setTimeout(() => {
+    const home = document.getElementsByClassName("home");
+    (home[0] as HTMLDivElement).style.transform = "none";
+    const nav = document.getElementsByTagName("nav");
+    nav[0].style.transform = "none";
+  }, 1500);
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <div data-theme={theme} className="app-container">
+      <ScrollToTop />
+      <Navbar changeTheme={changeTheme} currentTheme={theme} />
+      <Home />
+      <Free />
+      <Clients />
+      <Release />
+      <Like />
+      <Signup />
+      <Footer />
     </div>
-  )
+  );
 }
-
-export default App

@@ -1,33 +1,40 @@
-import React from "react";
-import home from "../assets/home.png";
+import {Table} from '@nextui-org/react';
+
+
 export default function Home() {
   return (
     <div className="home">
-      <div className="container">
-        <div className="content">
-          <p className="sub-title"></p>
-          <h1 className="title">Decentralize your data, fortify your security.</h1>
-          <p className="description">
-          Community sourcing, DeFi, and decentralized governance to boost data marketplace value.
-          </p>
-          <div>
-          <button>
-           Sign Up</button>
-          &nbsp;&nbsp;&nbsp;
-          <button>Wallet</button>
-          </div>
-        </div>
-        <div className="image-container">
-          <div className="image">
-            <img src={home}
-            width={"500rem"} alt="home image" />
-          </div>
-          <div className="ellipse-container">
-            <div className="ellipse pink"></div>
-            <div className="ellipse orange"></div>
-          </div>
-        </div>
-      </div>
+
+      <Table
+        aria-label="Example table with static content"
+        css={{
+          height: "auto",
+          minWidth: "100%",
+        }}
+      >
+        <Table.Header>
+          <Table.Column>NAME</Table.Column>
+          <Table.Column>STATUS</Table.Column>
+        </Table.Header>
+        <Table.Body>
+          <Table.Row key="1">
+            <Table.Cell>Tony Reichert</Table.Cell>
+            <Table.Cell>Active</Table.Cell>
+          </Table.Row>
+          <Table.Row key="2">
+            <Table.Cell>Zoey Lang</Table.Cell>
+            <Table.Cell>Paused</Table.Cell>
+          </Table.Row>
+          <Table.Row key="3">
+            <Table.Cell>Jane Fisher</Table.Cell>
+            <Table.Cell>Active</Table.Cell>
+          </Table.Row>
+          <Table.Row key="4">
+            <Table.Cell>William Howard</Table.Cell>
+            <Table.Cell>Vacation</Table.Cell>
+          </Table.Row>
+        </Table.Body>
+      </Table>
     </div>
   );
 }

@@ -8,13 +8,6 @@ export const scrollRevealConfig = {
 export const revealSelectors = `
   nav,
   .home,
-  .free,
-  .clients,
-  .super-rare,
-  .releases,
-  .like,
-  .signup,
-  footer
 `
 export const scrollRevealOptions = {
   interval: 500,

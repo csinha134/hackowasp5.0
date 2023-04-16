@@ -33,11 +33,10 @@ html {
 }
 
 .app-container {
-  background-color: var(--background);
   font-family: var(--font-family);
   overflow-x: hidden;
   transition: 0.5s ease-in-out;
-  padding: 2rem 4rem;
+  width: 100%;
   @media screen and (min-width: 280px) and (max-width: 1080px) {
     padding: 0;
   }

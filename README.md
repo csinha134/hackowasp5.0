@@ -93,31 +93,3 @@ If you want to upload new content, you can use [the admin interface][Demo App Ad
 <ins><b>Interacting with Chainsafe storage used in this demo app</b></ins>
 
 If you want to interact with the Chainsafe storage which is being used in this demo app, you can do via their APIs. Following are the keys that you might need:
-
-- CHAINSAFE_KEY_ID=OYWNOGUSZNWMPGUSQQUI
--  CHAINSAFE_KEY_SECRET=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2NjI4ODA2NDAsImNuZiI6eyJqa3UiOiIvY2VydHMiLCJraWQiOiI5aHE4bnlVUWdMb29ER2l6VnI5SEJtOFIxVEwxS0JKSFlNRUtTRXh4eGtLcCJ9LCJ0eXBlIjoiYXBpX3NlY3JldCIsImlkIjo4NjA2LCJ1dWlkIjoiM2M1NmYzMjEtYTk5Yi00MzA0LWFlNzEtNzJjNjU0MWM0Y2VhIiwicGVybSI6eyJiaWxsaW5nIjoiKiIsInNlYXJjaCI6IioiLCJzdG9yYWdlIjoiKiIsInVzZXIiOiIqIn0sImFwaV9rZXkiOiJPWVdOT0dVU1pOV01QR1VTUVFVSSIsInNlcnZpY2UiOiJzdG9yYWdlIn0.IDNCAGlNIvtr5T5NnL0IK8VVLXh1WLqvMPupvBWL0HPW2rikuKmURK2zW-tjCz5DDrFaXJlx6dkVhV-4lCsYhg
-- CHAINSAFE_BUCKET_URL=https://api.chainsafe.io/api/v1/bucket/12110635-9fce-419a-83ef-4f843965abbc
-
-<ins><b> App testing </b></ins>
-The [poc app][Demo App] runs fine on the following platforms:
-| Browser | Version | Works in incognito mode too? | Comments |
-| ------ | ------ | ------ | ------ |
-| Chrome | Version 104.0.5112.81 (Official Build) (64-bit) | ❌ | Chrome tightens on CORS in the incognito mode. This poc app uses different domains to host [frontend][Demo App] and [backend][Demo Backend] and Chrome's incognito mode is not happy about this 😔 |
-| Brave | Version 1.42.88 Chromium: 104.0.5112.81 (Official Build) (x86_64) | ✔️ |  |
-| Firefox | Version 103.0.2 (64-bit)  | ✔️ |  |
-| Edge | Version 104.0.1293.47 (Official build) (64-bit) | ✔️ |  |
-
-You could also choose to run your own instance of the backend and the frontend. You would find the instructions in the respective README files:
-- [Running Backend][README Backend]
-- [Running Frontend][README Frontend]
-
-
-[Data Dao Hackathon]: <https://fil-toronto.com/hackathon/>
-[README Frontend]: <../main/frontend/README.md>
-[README Backend]: <../main/backend/README.md>
-[Demo Video]: <https://www.youtube.com/watch?v=aCtSajvr0LQ>
-[Demo App]: <https://fanstop-frontend.vercel.app/>
-[Demo App Admin]: <https://fanstop-frontend.vercel.app/admin>
-[Demo Backend]: <https://fanstop-datadao.herokuapp.com/>
-[Demo FA2 Contract]: <https://better-call.dev/jakartanet/KT1X2ifoZhfgz1AhYfHVV36P1sf9UwJS56HY/operations>
-[Temple wallet]: <https://templewallet.com/>

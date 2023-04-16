@@ -1,14 +1,55 @@
 import {Navbar, Button, Link, Text, useTheme} from "@nextui-org/react";
+import {connectWallet, disconnectWallet, getAccount, signPayload} from "../utils/wallet";
+import {getAccessToken, removeAccessToken} from "../utils/access_token";
 
-export type TNav = {
-  publicAddr: string
-  onConnectWallet: () => void
-  ondisconnectWallet: () => void
-}
-
-export default function Nav(props: TNav) {
-  const {publicAddr, onConnectWallet, ondisconnectWallet} = props
+export default function Nav(props: any) {
+  const {account, setAccount, setContentUri, setError, setAccessToken, onGetContent} = props
   const {isDark} = useTheme();
+
+  const onConnectWallet = async () => {
+    console.log("on connect")
+    await connectWallet();
+    console.log('no');
+    const account = await getAccount();
+    console.log('Accooutn', account);
+    setAccount(JSON.stringify(account));
+    setContentUri('');
+    const signature = await signPayload();
+    const {accessToken, error} = await getAccessToken({
+      signature,
+      ...account,
+    });
+    console.log('access ', accessToken, error);
+    if (error) {
+      setError(error);
+    }
+    if (accessToken) {
+      setAccessToken(accessToken);
+      await onGetContent();
+    }
+  };
+
+  const ondisconnectWallet = async () => {
+    await disconnectWallet();
+    setAccount('');
+    const resp = await removeAccessToken();
+    setAccessToken(null);
+    setContentUri('');
+    console.log(resp);
+  };
+
+  const getPublicAddressFromAccount = () => {
+    if (account === '') {
+      return '';
+    }
+    const publicAddr = JSON.parse(account)?.walletPublicAddress;
+    if (publicAddr) {
+      return publicAddr;
+    }
+    return '';
+  };
+
+  const publicAddr = getPublicAddressFromAccount()
 
   function StatusButton() {
     if (publicAddr && publicAddr !== '') {

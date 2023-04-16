@@ -51,7 +51,7 @@ export const getContent = async (filename: string) => {
     );
     return {uri: URL.createObjectURL(res.data), error: null};
   } catch (err) {
-    return {uri: "", error: err};
+    return {uri: null, error: err};
   }
 };
 

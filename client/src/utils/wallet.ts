@@ -8,9 +8,8 @@ export const wallet = new BeaconWallet({
 });
 
 export const connectWallet = async () => {
-  console.log('connecting to waller')
+  console.log('hi')
   await wallet.requestPermissions({network: {type: NetworkType.GHOSTNET}});
-  console.log('connected to waller')
 };
 
 export const disconnectWallet = async () => {

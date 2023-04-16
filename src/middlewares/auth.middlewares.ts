@@ -15,9 +15,11 @@ export default async function authMiddleware(
       console.log(jwtPayload)
       next();
     } catch (error) {
+      console.log("Error", error)
       next(new HttpException(400, 'Invalid access token'));
     }
   } else {
+    console.log("Cookies", cookies)
     next(new HttpException(400, 'Could not find \'Authorization\' cookie'));
   }
 }

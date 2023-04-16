@@ -155,8 +155,6 @@ app.post('/upload', async (
     let formdata2 = new FormData();
     formdata2.append('path', ``);
     formdata2.append('file', resp.data, `encrypted_${uploadedFile.name}`);
-    console.log("after encrpyt")
-    console.log("after upload")
 
     const resp2 = await axios({
       method: 'post',
@@ -168,12 +166,9 @@ app.post('/upload', async (
       },
       data: formdata2
     });
-    console.log("after upload")
 
     resp2.data.pipe(res)
   } catch (error) {
-    console.log("we faced an error")
-    console.log(error)
     return res.sendStatus(400);
   }
 });
